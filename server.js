@@ -7,17 +7,7 @@ var PORT = process.env.PORT;
 //     res.send('Hello Express');  
 // });
 
-var middleWare = {
-    requireAuthentication: function(req, res, next){
-        console.log('Private route hit');
-        next();
-    },
-    logger: function (req, res, next){
-        var date = Date().toString();
-        console.log('Request: ' + date + ' ' + req.method + ' ' + req.originalUrl);
-        next();
-    }
-}
+var middleWare = require('./middleware.js');
 
 app.use(middleWare.logger);
 
